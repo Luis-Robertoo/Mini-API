@@ -6,6 +6,7 @@ namespace MiniTodo.ViewModels
     public class CreateTodoViewModel : Notifiable<Notification>
     {
         public string Title { get; set; }
+        public bool Done { get; set; }
         public Todo MapTo()
         {
             var contrato = new Contract<Notification>()
@@ -15,7 +16,7 @@ namespace MiniTodo.ViewModels
 
             AddNotifications(contrato);
 
-            return new Todo(Guid.NewGuid(), Title, false);
+            return new Todo(Guid.NewGuid(), Title, Done);
         }
 
     }
